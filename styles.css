@@ -1,13 +1,13 @@
 body {
   margin: 0;
   font-family: 'Montserrat', Arial, sans-serif;
-  background: #2c2f33;   /* updated color */
+  background: #2c2f33; /* Uniform background */
   color: #f7f7f8;
   min-height: 100vh;
 }
 
 header {
-  background: #1e1a17;
+  background: #2c2f33; /* Match the body */
   padding: 0.5rem 0;
   position: sticky;
   top: 0;
@@ -81,11 +81,11 @@ header {
   background: #D6AF49;
   color: #26211E;
 }
-
+/* Hero section: remove the background gradient and set to #2c2f33 */
 .hero {
   text-align: center;
   padding: 3rem 1rem 2rem 1rem;
-  background: linear-gradient(120deg, #26211E 80%, #D6AF49 120%);
+  background: #2c2f33;
   margin-bottom: 2.5rem;
   border-radius: 0 0 36px 36px;
   box-shadow: 0 2px 20px rgba(0,0,0,0.19);
@@ -217,7 +217,7 @@ header {
 }
 
 footer {
-  background: #1e1a17;
+  background: #2c2f33; /* Match the body */
   color: #D6AF49;
   text-align: center;
   padding: 1.5rem 0 1rem 0;
