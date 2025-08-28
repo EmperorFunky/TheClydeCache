@@ -119,19 +119,19 @@
     <h3>Featured Products</h3>
     <div class="grid">
       <div class="card">
-        <img src="product1.png" alt="Pokémon Booster">
+        <img src="Product1.jpg" alt="Pokémon Booster">
         <h4>Pokémon Booster Pack</h4>
         <p>Latest set straight from Japan.</p>
         <a href="#" class="btn btn-primary">Add to Cart</a>
       </div>
       <div class="card">
-        <img src="product2.png" alt="Pokémon Deck">
+        <img src="Product2.jpg" alt="Pokémon Deck">
         <h4>Pokémon Starter Deck</h4>
         <p>Perfect for beginners & collectors.</p>
         <a href="#" class="btn btn-primary">Add to Cart</a>
       </div>
       <div class="card">
-        <img src="product3.png" alt="Pokémon Box">
+        <img src="Product3.jpg" alt="Pokémon Box">
         <h4>Elite Trainer Box</h4>
         <p>Boost your collection with style.</p>
         <a href="#" class="btn btn-primary">Add to Cart</a>
@@ -164,4 +164,5 @@
   </footer>
 
 </body>
+
 </html>
