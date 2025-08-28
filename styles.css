@@ -22,21 +22,23 @@ header {
   margin: 0 auto;
   padding: 0 1rem;
   justify-content: space-between;
+  min-height: 78px;
 }
 
-.logo img {
-  height: 58px;
-  vertical-align: middle;
-  filter: drop-shadow(0 2px 8px #151c2a66);
-  transition: filter 0.18s;
-}
-
-.logo {
+.logo-link {
   display: flex;
   align-items: center;
   text-decoration: none;
 }
-.logo:hover img {
+.logo-img {
+  height: 58px;
+  width: auto;
+  vertical-align: middle;
+  filter: drop-shadow(0 2px 8px #151c2a66);
+  transition: filter 0.18s;
+  display: block;
+}
+.logo-link:hover .logo-img {
   filter: drop-shadow(0 2px 16px #c1a14d88) brightness(1.08);
 }
 
@@ -273,12 +275,13 @@ footer {
 }
 
 .cart-icon {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   position: relative;
   color: #f5eddb;
   font-size: 1.2em;
   transition: color 0.2s;
+  margin-left: 0.4em;
 }
 .cart-icon:focus, .cart-icon:hover {
   color: #c1a14d;
@@ -286,28 +289,28 @@ footer {
 .cart-svg {
   display: flex;
   align-items: center;
-  margin-right: 0.2em;
 }
 
 #basket-count {
   background: #c1a14d;
   color: #18213a;
   border-radius: 50%;
-  font-size: 0.93em;
-  padding: 0.15em 0.55em;
+  font-size: 0.96em;
+  padding: 0.09em 0.49em;
   margin-left: 0.1em;
   font-weight: bold;
   position: absolute;
-  top: 10px;
-  right: -15px;
-  min-width: 1.5em;
-  min-height: 1.5em;
+  top: -7px;
+  right: -18px;
+  min-width: 1.35em;
+  min-height: 1.35em;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 1px 6px #c1a14d44;
   border: 2px solid #fff;
   z-index: 2;
+  font-family: 'Montserrat', Arial, sans-serif;
 }
 
 .skyline-overlay {
@@ -363,7 +366,7 @@ footer {
     gap: 0.6rem;
     width: 100%;
   }
-  .logo img {
+  .logo-img {
     height: 36px;
   }
   .hero {
