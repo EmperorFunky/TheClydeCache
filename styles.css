@@ -123,3 +123,20 @@ footer {
     padding: 2rem 0.5rem;
   }
 }
+.cart-icon {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+#basket-count {
+  background: #f2a900;
+  color: #232323;
+  border-radius: 50%;
+  font-size: 0.9em;
+  padding: 0.15em 0.55em;
+  margin-left: 0.3em;
+  font-weight: bold;
+  position: absolute;
+  top: -8px;
+  right: -12px;
+}
