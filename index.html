@@ -1,108 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>The Clyde Cache</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="styles.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <nav class="navbar">
-      <a href="index.html" class="logo">
-        <img src="Clyde Cache Logo.png" alt="The Clyde Cache Logo" />
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li class="dropdown">
-          <a href="shop.html">Shop</a>
-          <ul class="dropdown-content">
-            <li><a href="shop.html#boxes">Boxes</a></li>
-            <li><a href="shop.html#packs">Packs</a></li>
-            <li><a href="shop.html#pins">Pins</a></li>
-            <li><a href="shop.html#statues">Statues</a></li>
-          </ul>
-        </li>
-        <li><a href="events.html">Events</a></li>
-        <li>
-          <a href="basket.html" class="basket-link">
-            <span class="cart-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="9" cy="21" r="1"></circle>
-                <circle cx="20" cy="21" r="1"></circle>
-                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-              </svg>
-              <span id="basket-count">0</span>
-            </span>
-          </a>
-        </li>
-        <li><a href="login.html" class="account-link">Account</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section class="hero">
-      <h1>The Clyde Cache</h1>
-      <p>Your home for Pokémon cards, collectibles, and the latest releases.<br>Discover rare boxes, packs, pins, statues, and more!</p>
-    </section>
+<section class="featured-section">
+  <h2>Featured Products</h2>
+  <div class="featured-products">
+    <div class="product-card">
+      <img src="slab1.jpg" alt="Featured Slab 1">
+      <h3>Graded Slab 1</h3>
+      <p>£694.20</p>
+      <button class="btn">Add to Basket</button>
+    </div>
+    <div class="product-card">
+      <img src="slab2.jpg" alt="Featured Slab 2">
+      <h3>Graded Slab 2</h3>
+      <p>£694.20</p>
+      <button class="btn">Add to Basket</button>
+    </div>
+    <div class="product-card">
+      <img src="slab3.jpg" alt="Featured Slab 3">
+      <h3>Graded Slab 3</h3>
+      <p>£694.20</p>
+      <button class="btn">Add to Basket</button>
+    </div>
+    <div class="product-card">
+      <img src="slab4.jpg" alt="Featured Slab 4">
+      <h3>Graded Slab 4</h3>
+      <p>£694.20</p>
+      <button class="btn">Add to Basket</button>
+    </div>
+  </div>
+</section>
 
-    <section class="featured-section">
-      <h2>Featured Products</h2>
-      <div class="featured-products">
-        <div class="product-card">
-          <img src="images/pokemon-box-placeholder.png" alt="Pokemon Elite Trainer Box">
-          <h3>Elite Trainer Box</h3>
-          <p>£39.99</p>
-          <button class="btn">Add to Basket</button>
-        </div>
-        <div class="product-card">
-          <img src="images/pokemon-pack-placeholder.png" alt="Pokemon Booster Pack">
-          <h3>Booster Pack</h3>
-          <p>£3.99</p>
-          <button class="btn">Add to Basket</button>
-        </div>
-        <div class="product-card">
-          <img src="images/pokemon-pin-placeholder.png" alt="Pikachu Pin Set">
-          <h3>Pikachu Pin Set</h3>
-          <p>£12.99</p>
-          <button class="btn">Add to Basket</button>
-        </div>
-        <div class="product-card">
-          <img src="images/pokemon-statue-placeholder.png" alt="Legendary Pokemon Statue">
-          <h3>Legendary Pokemon Statue</h3>
-          <p>£59.99</p>
-          <button class="btn">Add to Basket</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="categories-section">
-      <h2>Shop by Category</h2>
-      <div class="categories-list">
-        <a href="shop.html#boxes" class="category-card">
-          <img src="images/pokemon-box-placeholder.png" alt="Boxes">
-          Boxes
-        </a>
-        <a href="shop.html#packs" class="category-card">
-          <img src="images/pokemon-pack-placeholder.png" alt="Packs">
-          Packs
-        </a>
-        <a href="shop.html#pins" class="category-card">
-          <img src="images/pokemon-pin-placeholder.png" alt="Pins">
-          Pins
-        </a>
-        <a href="shop.html#statues" class="category-card">
-          <img src="images/pokemon-statue-placeholder.png" alt="Statues">
-          Statues
-        </a>
-      </div>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 The Clyde Cache</p>
-  </footer>
-  <script src="main.js"></script>
-</body>
-</html>
+<section class="categories-section">
+  <h2>Shop by Category</h2>
+  <div class="categories-list">
+    <a href="shop.html#booster-boxes" class="category-card">
+      <img src="Booster-Box.jpg" alt="Booster Boxes">
+      Booster Boxes
+    </a>
+    <a href="shop.html#booster-packs" class="category-card">
+      <img src="Booster-Packs.jpg" alt="Booster Packs">
+      Booster Packs
+    </a>
+    <a href="shop.html#pins" class="category-card">
+      <img src="Pins.jpg" alt="Pins">
+      Pins
+    </a>
+    <a href="shop.html#plushes" class="category-card">
+      <img src="Plush.jpg" alt="Plushes">
+      Plushes
+    </a>
+  </div>
+</section>
