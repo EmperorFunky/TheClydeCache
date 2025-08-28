@@ -7,12 +7,32 @@
   <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-  <!-- Navbar (copy from index.html) -->
-  <!-- ... -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <img src="Clyde Cache Logo.png" alt="The Clyde Cache Logo" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
+        <li class="dropdown">
+          <a href="shop.html">Shop</a>
+          <ul class="dropdown-content">
+            <li><a href="shop.html#cards">Cards</a></li>
+            <li><a href="shop.html#figures">Figures</a></li>
+            <li><a href="shop.html#apparel">Apparel</a></li>
+          </ul>
+        </li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="basket.html" class="basket-link">Basket <span id="basket-count">0</span></a></li>
+        <li><a href="login.html" class="account-link">Account</a></li>
+      </ul>
+    </nav>
+  </header>
   <main>
     <section class="page-section">
       <h2>About Us</h2>
-      <p>Welcome to The Clyde Cache! Our story and mission will go here.</p>
+      <p>Welcome to The Clyde Cache! Our story, mission, and passion for collectibles will be shared here. Stay tuned for more details about our journey.</p>
     </section>
   </main>
   <footer>
