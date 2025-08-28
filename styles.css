@@ -1,5 +1,4 @@
 body {
-  /* Deep Scottish blue gradient background */
   background: linear-gradient(180deg, #18213a 0%, #25304b 100%);
   color: #f5eddb;
   font-family: 'Montserrat', Arial, sans-serif;
@@ -29,6 +28,16 @@ header {
   height: 58px;
   vertical-align: middle;
   filter: drop-shadow(0 2px 8px #151c2a66);
+  transition: filter 0.18s;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.logo:hover img {
+  filter: drop-shadow(0 2px 16px #c1a14d88) brightness(1.08);
 }
 
 .nav-links {
@@ -267,10 +276,17 @@ footer {
   display: inline-flex;
   align-items: center;
   position: relative;
+  color: #f5eddb;
+  font-size: 1.2em;
+  transition: color 0.2s;
 }
-
-.cart-icon span:first-child {
-  font-size: 1.35em;
+.cart-icon:focus, .cart-icon:hover {
+  color: #c1a14d;
+}
+.cart-svg {
+  display: flex;
+  align-items: center;
+  margin-right: 0.2em;
 }
 
 #basket-count {
@@ -279,11 +295,11 @@ footer {
   border-radius: 50%;
   font-size: 0.93em;
   padding: 0.15em 0.55em;
-  margin-left: 0.3em;
+  margin-left: 0.1em;
   font-weight: bold;
   position: absolute;
   top: 10px;
-  right: -13px;
+  right: -15px;
   min-width: 1.5em;
   min-height: 1.5em;
   display: flex;
@@ -291,6 +307,7 @@ footer {
   justify-content: center;
   box-shadow: 0 1px 6px #c1a14d44;
   border: 2px solid #fff;
+  z-index: 2;
 }
 
 .skyline-overlay {
