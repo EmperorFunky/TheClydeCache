@@ -120,6 +120,9 @@ header {
   transition: box-shadow 0.25s, border 0.25s;
   border: 1.5px solid transparent;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .product-card:hover {
   box-shadow: 0 0 22px 4px #4fd1c570;
@@ -195,11 +198,13 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-decoration: none;
 }
 .category-card:hover {
   box-shadow: 0 0 16px 3px #4fd1c560;
   border: 1.5px solid #4fd1c5;
   color: #4fd1c5;
+  text-decoration: none;
 }
 .category-card img {
   width: 70px;
@@ -208,6 +213,15 @@ header {
   margin-bottom: 0.7rem;
   border-radius: 8px;
   background: #222;
+}
+.category-card span {
+  margin-top: 0.4rem;
+  font-size: 1.15rem;
+  color: #f7fafc;
+  text-decoration: none;
+}
+.category-card:hover span {
+  color: #4fd1c5;
 }
 
 footer {
