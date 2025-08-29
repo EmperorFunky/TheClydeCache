@@ -6,7 +6,6 @@
   <title>The Clyde Cache — Scotland’s Home for Trading Cards</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Headings = serif vibe, Body = clean sans -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -61,7 +60,7 @@
       width:min(900px,92%);margin-inline:auto;display:grid;place-items:center;text-align:center
     }
     .crest{width:280px;max-width:50vw;margin-inline:auto;margin-bottom:16px;}
-    .crest img{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 0 #0005)} /* Use your PNG here! */
+    .crest img{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 0 #0005)}
     .tag{font-size:1.2rem;opacity:.95;margin:.35rem 0 1.2rem}
     .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
     .section{padding:56px 0}
@@ -95,6 +94,58 @@
       background:linear-gradient(180deg,#10243a,#0b1b2e);color:#fff;border-radius:16px;padding:22px;display:grid;gap:10px;
       border:2px solid #0003;box-shadow:0 8px 0 #0005
     }
+    /* Discord Panel Customization */
+    .discord-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 44px 18px 44px 18px;
+      background: linear-gradient(180deg, #142741 70%, #0d1f33 100%);
+      border-radius: 22px;
+      box-shadow: 0 8px 0 #0005;
+      border: 2px solid #0003;
+      min-height: 350px;
+      text-align: center;
+      justify-content: center;
+    }
+    .discord-header {
+      font-family: Cinzel, Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 18px;
+      letter-spacing: 0.5px;
+    }
+    .discord-logo-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      background: #232b44;
+      box-shadow: 0 4px 24px #0002;
+      transition: box-shadow 0.15s, transform 0.12s;
+      outline: none;
+    }
+    .discord-logo-link:hover, .discord-logo-link:focus {
+      box-shadow: 0 6px 28px #7289daaa;
+      transform: scale(1.09);
+    }
+    .discord-logo {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      display: block;
+    }
+    .discord-caption {
+      color: #e7eaf1;
+      font-size: 1.07rem;
+      margin-top: 8px;
+      max-width: 240px;
+      opacity: 0.97;
+    }
     .why{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
     .why .tile{
       background:#0d2740;color:#fff;border-radius:14px;padding:18px;text-align:center;border:2px solid #0003
@@ -127,7 +178,6 @@
   <header class="hero">
     <div class="hero-inner container">
       <div class="hero-logo">
-        <!-- Swap SVG crest for your PNG logo if desired -->
         <div class="crest" aria-hidden="true">
           <img src="logo.png" alt="The Clyde Cache Logo">
         </div>
@@ -182,7 +232,6 @@
         <div>
           <h2>New Arrivals</h2>
           <div class="products">
-            <!-- Product 1 -->
             <article class="product">
               <div class="thumb">
                 <img src="slab1.jpg" alt="Pikachu V">
@@ -194,7 +243,6 @@
               <span class="pill badge">New</span>
               <div class="cta"><a class="btn" href="#">Add to Cart</a></div>
             </article>
-            <!-- Product 2 -->
             <article class="product">
               <div class="thumb">
                 <img src="slab2.jpg" alt="NEO Mewtwo">
@@ -206,7 +254,6 @@
               <span class="pill badge">Limited Stock</span>
               <div class="cta"><a class="btn" href="#">Add to Cart</a></div>
             </article>
-            <!-- Product 3 -->
             <article class="product">
               <div class="thumb">
                 <img src="slab3.jpg" alt="ICUV">
@@ -218,7 +265,6 @@
               <span class="pill badge">Foil</span>
               <div class="cta"><a class="btn" href="#">Add to Cart</a></div>
             </article>
-            <!-- Product 4 -->
             <article class="product">
               <div class="thumb">
                 <img src="slab4.jpg" alt="Booster Box">
@@ -231,17 +277,15 @@
             </article>
           </div>
         </div>
-
-        <aside class="panel">
-          <h3 style="font-family:Cinzel,Georgia,serif;margin-bottom:.25rem;">Join our Discord</h3>
-          <p style="opacity:.9;margin:0 0 .5rem">Trade, chat, and get first dibs on drops & events.</p>
-          <a class="btn" href="#" aria-label="Join the Clyde Cache Discord">
-            <!-- Discord-ish bubble -->
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M20 4c-1.7-.8-3.5-1.3-5.3-1.5l-.3.6c-1.5-.2-3-.2-4.5 0l-.3-.6C7.8 2.7 6 3.2 4.3 4 2 8.1 1.4 12.1 1.6 16.1c1.8 1.3 3.7 2.2 5.7 2.8l.9-1.5c-.5-.2-1-.4-1.4-.7l.3-.2c2.7 1.3 5.8 1.3 8.5 0l.3.2c-.5.3-1 .5-1.4.7l.9 1.5c2-.6 3.9-1.5 5.7-2.8.3-4-.4-8-2.1-12.1zM9.3 14.2c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm5.4 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/>
-            </svg>
-            Join the Discord
+        <!-- Discord Section: NEW -->
+        <aside class="panel discord-panel">
+          <div class="discord-header">Join the discord!</div>
+          <a href="https://discord.gg/28PnXR3Nrp" target="_blank" rel="noopener" class="discord-logo-link">
+            <img src="discord.png" alt="Discord Logo" class="discord-logo" width="64" height="64">
           </a>
+          <div class="discord-caption">
+            Trade, chat, and get first dibs on drops &amp; events.
+          </div>
         </aside>
       </div>
     </section>
