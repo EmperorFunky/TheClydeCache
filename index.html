@@ -1,129 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>The Clyde Cache</title>
-  <meta name="viewport" content="width=1920, initial-scale=1">
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Clyde Cache — Scotland’s Home for Trading Cards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Headings = serif vibe, Body = clean sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#132536;          /* deep navy */
+      --ink-2:#0e1b28;
+      --cream:#f4e9d8;        /* warm paper */
+      --paper:#f7efe3;
+      --gold:#d2a44a;         /* accent */
+      --gold-2:#b9882e;
+      --blue:#1e3a5f;
+      --card:#0f2740;
+      --muted:#8fa3b8;
+      --success:#2ea44f;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.35}
+    h1,h2,h3{font-family:Cinzel,Georgia,serif;margin:0 0 .6rem}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+
+    /* Utility */
+    .container{width:min(1200px,92%);margin-inline:auto}
+    .btn{
+      display:inline-flex;align-items:center;gap:.5rem;
+      background:var(--card);color:#fff;border-radius:999px;
+      padding:.8rem 1.2rem;border:2px solid #0002;
+      box-shadow:0 2px 0 #0003, inset 0 -2px 0 #0002;
+      transition:transform .08s ease, box-shadow .12s ease, background .12s ease;
+      font-weight:600; letter-spacing:.2px;
+    }
+    .btn:hover{transform:translateY(-1px);box-shadow:0 4px 0 #0003, inset 0 -2px 0 #0002}
+    .btn-outline{
+      background:transparent;color:var(--card);border-color:var(--card)
+    }
+    .pill{border-radius:999px;padding:.25rem .6rem;font-size:.75rem;font-weight:700;background:#00000012}
+
+    /* HERO */
+    .hero{
+      position:relative;isolation:isolate;color:#fff;
+      background:
+        radial-gradient(1200px 60% at 50% 100%, #0000 40%, #0005 75%, #0008 100%),
+        linear-gradient(180deg, #223a62 0%, #1b2f50 55%, #162740 100%);
+      overflow:hidden;
+    }
+    /* subtle card-back pattern */
+    .hero::before{
+      content:"";position:absolute;inset:-10% -10% 0;z-index:0;opacity:.12;
+      background:
+        radial-gradient(circle at 20% 30%, #ffffff10 0 8%, #0000 9%),
+        radial-gradient(circle at 70% 20%, #ffffff10 0 7%, #0000 8%),
+        radial-gradient(circle at 40% 75%, #ffffff10 0 7%, #0000 8%);
+      filter:blur(2px);
+    }
+    /* skyline stripe */
+    .skyline{
+      position:absolute;left:0;right:0;bottom:0;height:120px;z-index:0;
+      background:
+        linear-gradient(#0000, #0003 40%, #0008),
+        url('data:image/svg+xml;utf8,\
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120">\
+          <path fill="%230d1f33" d="M0 100h60l20-20h40l12-22h30l10 18h50l14-30h60l20 16h50l25-18h40l12 12h70l12-12h40l15 28h35l18-10h30l35 10h40l40-14 10 10h55v40H0z"/>\
+          <path fill="%23132a44" d="M0 120h1200v0H0z"/>\
+        </svg>') center/cover no-repeat;
+    }
+    .hero-inner{position:relative;z-index:1;padding:56px 0 140px}
+    .hero-logo{
+      width:min(900px,92%);margin-inline:auto;display:grid;place-items:center;text-align:center
+    }
+    .crest{
+      width:280px;max-width:50vw;margin-inline:auto;margin-bottom:16px;
+    }
+    .crest svg{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 0 #0005)}
+    .tag{font-size:1.2rem;opacity:.95;margin:.35rem 0 1.2rem}
+    .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+    /* FEATURED CATEGORIES */
+    .section{padding:56px 0}
+    .section h2{font-size:1.8rem;text-align:center;margin-bottom:22px}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .card{
+      background:var(--card);color:#fff;border-radius:18px;padding:18px;
+      box-shadow:0 6px 0 #0004; border:2px solid #0003; transition:transform .1s ease
+    }
+    .card:hover{transform:translateY(-2px)}
+    .card figure{
+      aspect-ratio:1.2/1;border-radius:12px;background:linear-gradient(180deg,#274867,#1a3452);
+      display:grid;place-items:center;margin:0 0 12px;border:1px solid #ffffff18
+    }
+    .card figcaption{font-weight:700;text-align:center}
+
+    /* NEW ARRIVALS */
+    .grid-2{display:grid;grid-template-columns:2fr 1fr;gap:22px;align-items:stretch}
+    .products{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .product{
+      background:#fff;border:2px solid #00000014;border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:10px
+    }
+    .product .thumb{aspect-ratio:3/4;border-radius:10px;background:#e8eef5;display:grid;place-items:center;border:1px solid #00000010}
+    .product .meta{display:flex;justify-content:space-between;align-items:center}
+    .product .title{font-weight:700}
+    .product .price{font-weight:800}
+    .product .badge{background:#041e36;color:#fff}
+    .product .cta{justify-content:stretch}
+    .product .btn{width:100%;justify-content:center}
+
+    /* Discord CTA */
+    .panel{
+      background:linear-gradient(180deg,#10243a,#0b1b2e);color:#fff;border-radius:16px;padding:22px;display:grid;gap:10px;
+      border:2px solid #0003;box-shadow:0 8px 0 #0005
+    }
+
+    /* Why shop & newsletter */
+    .why{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .why .tile{
+      background:#0d2740;color:#fff;border-radius:14px;padding:18px;text-align:center;border:2px solid #0003
+    }
+    .why svg{width:34px;margin-inline:auto 8px;display:block}
+    .newsletter{display:grid;grid-template-columns:1.6fr 1fr;gap:18px}
+    .newsletter .panel form{display:flex;gap:10px}
+    .newsletter input{
+      flex:1;padding:.9rem 1rem;border-radius:12px;border:2px solid #00000022;background:#fff;font:inherit
+    }
+
+    footer{padding:40px 0;color:#cdd8e6;background:#0a1a2b;text-align:center;margin-top:40px}
+
+    /* Responsive */
+    @media (max-width: 1024px){
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .grid-2{grid-template-columns:1fr}
+      .products{grid-template-columns:repeat(2,1fr)}
+      .why{grid-template-columns:repeat(2,1fr)}
+      .newsletter{grid-template-columns:1fr}
+      .crest{width:240px}
+    }
+    @media (max-width: 560px){
+      .cards{grid-template-columns:1fr}
+      .products{grid-template-columns:1fr}
+      .hero-inner{padding:44px 0 120px}
+    }
+  </style>
 </head>
 <body>
-  <!-- HERO HEADER -->
+
+  <!-- HERO -->
   <header class="hero">
-    <img class="hero-logo" src="logo.png" alt="The Clyde Cache logo">
-    <h1>The Clyde Cache</h1>
-    <p class="tagline">Scotland's Home for Trading Cards</p>
-    <div class="hero-buttons">
-      <a href="#" class="btn btn-main">Shop Now</a>
-      <a href="#" class="btn btn-outline">Join the Cache</a>
+    <div class="hero-inner container">
+      <div class="hero-logo">
+        <!-- Brand Crest (generic, swap with your PNG/SVG) -->
+        <div class="crest" aria-hidden="true">
+          <svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg">
+            <!-- three cards -->
+            <g transform="translate(0,10)">
+              <rect x="20" y="20" rx="16" width="120" height="160" fill="#1e3a5f" stroke="#d2a44a" stroke-width="8"/>
+              <rect x="150" y="6" rx="16" width="120" height="180" fill="#264b74" stroke="#d2a44a" stroke-width="8"/>
+              <rect x="280" y="20" rx="16" width="120" height="160" fill="#233f66" stroke="#d2a44a" stroke-width="8"/>
+              <!-- Saltire on middle card -->
+              <path d="M150 6 L270 186 M270 6 L150 186" stroke="#f4e9d8" stroke-width="20" />
+            </g>
+          </svg>
+        </div>
+        <h1>The Clyde Cache</h1>
+        <p class="tag">Scotland’s Home for Trading Cards</p>
+        <div class="cta">
+          <a class="btn" href="#">Shop Now</a>
+          <a class="btn btn-outline" href="#">Join the Cache</a>
+        </div>
+      </div>
     </div>
+    <div class="skyline" aria-hidden="true"></div>
   </header>
-  
-  <!-- FEATURED COLLECTIONS -->
-  <section class="collections">
-    <h2>Featured Collections</h2>
-    <div class="collections-row">
-      <div class="collection-card">
-        <img src="pokemon.png" alt="Pokemon">
-        <span>Pokemon</span>
-      </div>
-      <div class="collection-card">
-        <img src="lorcana.png" alt="Lorcana">
-        <span>Lorcana</span>
-      </div>
-      <div class="collection-card">
-        <img src="magic.png" alt="Magic">
-        <span>Magic</span>
-      </div>
-      <div class="collection-card">
-        <img src="accessories.png" alt="Accessories">
-        <span>Accessories</span>
-      </div>
-    </div>
-  </section>
-  
-  <!-- NEWEST ARRIVALS -->
-  <section class="arrivals">
-    <h2>Newest Arrivals</h2>
-    <div class="arrivals-carousel-wrapper">
-      <button class="carousel-arrow left" aria-label="Scroll left">&#8249;</button>
-      <div class="arrivals-carousel" id="arrivals-carousel">
-        <div class="product-card">
-          <img src="slab1.jpg" alt="Product 1">
-          <div class="product-info">
-            <strong>Pikachu V</strong>
-            <span>£12.09</span>
-            <button class="btn btn-main btn-small">Add to Cart</button>
-          </div>
-        </div>
-        <div class="product-card">
-          <img src="slab2.jpg" alt="Product 2">
-          <div class="product-info">
-            <strong>NEO Mewtwo</strong>
-            <span>£20.00</span>
-            <button class="btn btn-main btn-small">Add to Cart</button>
-          </div>
-        </div>
-        <div class="product-card">
-          <img src="slab3.jpg" alt="Product 3">
-          <div class="product-info">
-            <strong>ICUV Card</strong>
-            <span>£14.00</span>
-            <button class="btn btn-main btn-small">Add to Cart</button>
-          </div>
-        </div>
-        <div class="product-card">
-          <img src="slab4.jpg" alt="Product 4">
-          <div class="product-info">
-            <strong>Booster Box</strong>
-            <span>£90.00</span>
-            <button class="btn btn-main btn-small">Add to Cart</button>
-          </div>
-        </div>
-        <div class="product-card">
-          <img src="slab5.jpg" alt="Product 5">
-          <div class="product-info">
-            <strong>Rare Pin</strong>
-            <span>£7.50</span>
-            <button class="btn btn-main btn-small">Add to Cart</button>
-          </div>
+
+  <main>
+    <!-- FEATURED CATEGORIES -->
+    <section class="section">
+      <div class="container">
+        <h2>Featured Categories</h2>
+        <div class="cards">
+
+          <a href="#" class="card">
+            <figure>
+              <!-- generic Poké-like circle (non-IP) -->
+              <svg viewBox="0 0 100 100" width="64" height="64">
+                <circle cx="50" cy="50" r="44" fill="#0f2740" stroke="#d2a44a" stroke-width="6"/>
+                <path d="M6 50h88" stroke="#d2a44a" stroke-width="6"/>
+                <circle cx="50" cy="50" r="12" fill="#f4e9d8" stroke="#d2a44a" stroke-width="4"/>
+              </svg>
+            </figure>
+            <figcaption>Pokémon</figcaption>
+          </a>
+
+          <a href="#" class="card">
+            <figure>
+              <!-- planeswalker-like crest (generic) -->
+              <svg viewBox="0 0 120 120">
+                <path d="M60 6 L78 68 L60 58 L42 68 Z" fill="#d6512a"/>
+                <path d="M60 6 L76 58 L60 50 L44 58 Z" fill="#ff7a3c" opacity=".6"/>
+              </svg>
+            </figure>
+            <figcaption>Magic</figcaption>
+          </a>
+
+          <a href="#" class="card">
+            <figure>
+              <!-- card frame icon -->
+              <svg viewBox="0 0 100 100">
+                <rect x="18" y="18" width="64" height="64" rx="8" fill="none" stroke="#d2a44a" stroke-width="6"/>
+                <rect x="34" y="34" width="32" height="32" rx="6" fill="none" stroke="#f4e9d8" stroke-width="4"/>
+              </svg>
+            </figure>
+            <figcaption>Yu-Gi-Oh!</figcaption>
+          </a>
+
+          <a href="#" class="card">
+            <figure>
+              <!-- binder icon -->
+              <svg viewBox="0 0 120 120">
+                <rect x="26" y="20" width="68" height="80" rx="10" fill="none" stroke="#d2a44a" stroke-width="6"/>
+                <circle cx="44" cy="40" r="4" fill="#f4e9d8"/>
+                <rect x="46" y="50" width="40" height="36" rx="6" fill="none" stroke="#f4e9d8" stroke-width="4"/>
+              </svg>
+            </figure>
+            <figcaption>Accessories</figcaption>
+          </a>
+
         </div>
       </div>
-      <button class="carousel-arrow right" aria-label="Scroll right">&#8250;</button>
-    </div>
-  </section>
-  
-  <!-- WHY SHOP & JOIN THE CACHE -->
-  <section class="bottom-section">
-    <div class="why-shop">
-      <h3>Why Shop With Us?</h3>
-      <ul>
-        <li><span class="emoji">🚚</span> Fast UK Shipping</li>
-        <li><span class="emoji">🛡️</span> Authenticity</li>
-        <li><span class="emoji">🤝</span> Local Community</li>
-      </ul>
-    </div>
-    <div class="join-cache">
-      <h3>Join the Cache</h3>
-      <p>Get news, deals & event invites.</p>
-      <form class="subscribe-form">
-        <input type="email" placeholder="Email address" required>
-        <button type="submit" class="btn btn-main btn-small">Subscribe</button>
-      </form>
-    </div>
-  </section>
-  
+    </section>
+
+    <!-- NEW ARRIVALS + DISCORD CTA -->
+    <section class="section" style="background:#0d2740; color:#fff;">
+      <div class="container grid-2">
+        <div>
+          <h2>New Arrivals</h2>
+          <div class="products">
+            <!-- Product 1 -->
+            <article class="product">
+              <div class="thumb">
+                <svg width="72" height="72" viewBox="0 0 72 72">
+                  <rect x="6" y="6" width="60" height="60" rx="8" fill="#c6d4e6"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <span class="title">Charmander (Holo)</span>
+                <span class="price">£2.99</span>
+              </div>
+              <span class="pill badge">New</span>
+              <div class="cta"><a class="btn" href="#">Add to Cart</a></div>
+            </article>
+
+            <!-- Product 2 -->
+            <article class="product">
+              <div class="thumb">
+                <svg width="72" height="72" viewBox="0 0 72 72">
+                  <rect x="6" y="6" width="60" height="60" rx="8" fill="#c6d4e6"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <span class="title">Mythic Planeswalker</span>
+                <span class="price">£7.49</span>
+              </div>
+              <span class="pill badge">Limited Stock</span>
+              <div class="cta"><a class="btn" href="#">Add to Cart</a></div>
+            </article>
+
+            <!-- Product 3 -->
+            <article class="product">
+              <div class="thumb">
+                <svg width="72" height="72" viewBox="0 0 72 72">
+                  <rect x="6" y="6" width="60" height="60" rx="8" fill="#c6d4e6"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <span class="title">Shining Sea-Dragon</span>
+                <span class="price">£34.99</span>
+              </div>
+              <span class="pill badge">Foil</span>
+              <div class="cta"><a class="btn" href="#">Add to Cart</a></div>
+            </article>
+
+            <!-- Product 4 -->
+            <article class="product">
+              <div class="thumb">
+                <svg width="72" height="72" viewBox="0 0 72 72">
+                  <rect x="6" y="6" width="60" height="60" rx="8" fill="#c6d4e6"/>
+                </svg>
+              </div>
+              <div class="meta">
+                <span class="title">Mysterious Sorcerer</span>
+                <span class="price">£17.50</span>
+              </div>
+              <div class="cta"><a class="btn" href="#">Add to Cart</a></div>
+            </article>
+          </div>
+        </div>
+
+        <aside class="panel">
+          <h3 style="font-family:Cinzel,Georgia,serif;margin-bottom:.25rem;">Join our Discord</h3>
+          <p style="opacity:.9;margin:0 0 .5rem">Trade, chat, and get first dibs on drops & events.</p>
+          <a class="btn" href="#" aria-label="Join the Clyde Cache Discord">
+            <!-- Discord-ish bubble -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20 4c-1.7-.8-3.5-1.3-5.3-1.5l-.3.6c-1.5-.2-3-.2-4.5 0l-.3-.6C7.8 2.7 6 3.2 4.3 4 2 8.1 1.4 12.1 1.6 16.1c1.8 1.3 3.7 2.2 5.7 2.8l.9-1.5c-.5-.2-1-.4-1.4-.7l.3-.2c2.7 1.3 5.8 1.3 8.5 0l.3.2c-.5.3-1 .5-1.4.7l.9 1.5c2-.6 3.9-1.5 5.7-2.8.3-4-.4-8-2.1-12.1zM9.3 14.2c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm5.4 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/>
+            </svg>
+            Join the Discord
+          </a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- WHY SHOP + NEWSLETTER -->
+    <section class="section">
+      <div class="container">
+        <div class="why">
+          <div class="tile">
+            <svg viewBox="0 0 24 24"><path fill="#f4e9d8" d="M3 6h18l-2 10H5L3 6zm5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
+            <strong>Fast UK Shipping</strong>
+          </div>
+          <div class="tile">
+            <svg viewBox="0 0 24 24"><path fill="#f4e9d8" d="M12 2l9 4-9 4-9-4 9-4zm0 7l9 4-9 4-9-4 9-4zm0 7l9 4-9 4-9-4 9-4z"/></svg>
+            <strong>Authenticity Guaranteed</strong>
+          </div>
+          <div class="tile">
+            <svg viewBox="0 0 24 24"><path fill="#f4e9d8" d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm-7 9c0-3.9 3.1-7 7-7s7 3.1 7 7H5z"/></svg>
+            <strong>Local Community Focus</strong>
+          </div>
+          <div class="tile">
+            <svg viewBox="0 0 24 24"><path fill="#f4e9d8" d="M4 6h16v12H4zM7 9h10v2H7z"/></svg>
+            <strong>Huge Card Selection</strong>
+          </div>
+        </div>
+
+        <div class="newsletter section" style="padding-top:30px">
+          <div class="panel" style="background:linear-gradient(180deg,#132a44,#0f2137)">
+            <h3 style="font-family:Cinzel,Georgia,serif;margin:0 0 .5rem">Join the Cache</h3>
+            <p style="opacity:.9;margin:.2rem 0 1rem">Get news, deals & event invites.</p>
+            <form action="#" onsubmit="event.preventDefault(); alert('Subscribed!');">
+              <input type="email" placeholder="Email address" required />
+              <button class="btn" type="submit">Subscribe</button>
+            </form>
+          </div>
+          <div class="panel" style="display:grid;place-items:center">
+            <div style="text-align:center">
+              <div class="pill" style="display:inline-block;background:#ffffff14;color:#fff">© The Clyde Cache</div>
+              <p style="opacity:.8;margin:.6rem 0 0">Scotland’s home for trading cards.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer>
-    © 2025 The Clyde Cache
+    <div class="container">
+      <small>© <span id="y"></span> The Clyde Cache — All rights reserved.</small>
+    </div>
   </footer>
-  
+
   <script>
-    // Carousel logic
-    const carousel = document.getElementById('arrivals-carousel');
-    document.querySelector('.carousel-arrow.left').onclick = () =>
-      carousel.scrollBy({left: -260, behavior: 'smooth'});
-    document.querySelector('.carousel-arrow.right').onclick = () =>
-      carousel.scrollBy({left: 260, behavior: 'smooth'});
+    document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
