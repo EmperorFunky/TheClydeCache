@@ -10,25 +10,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --ink:#132536;          /* deep navy */
-      --ink-2:#0e1b28;
-      --cream:#f4e9d8;        /* warm paper */
-      --paper:#f7efe3;
-      --gold:#d2a44a;         /* accent */
-      --gold-2:#b9882e;
-      --blue:#1e3a5f;
-      --card:#0f2740;
-      --muted:#8fa3b8;
-      --success:#2ea44f;
+      --ink:#132536; --ink-2:#0e1b28; --cream:#f4e9d8; --paper:#f7efe3;
+      --gold:#d2a44a; --gold-2:#b9882e; --blue:#1e3a5f; --card:#0f2740;
+      --muted:#8fa3b8; --success:#2ea44f;
     }
-
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.35}
     h1,h2,h3{font-family:Cinzel,Georgia,serif;margin:0 0 .6rem}
     img{max-width:100%;display:block}
     a{color:inherit;text-decoration:none}
-
-    /* Utility */
     .container{width:min(1200px,92%);margin-inline:auto}
     .btn{
       display:inline-flex;align-items:center;gap:.5rem;
@@ -39,12 +29,8 @@
       font-weight:600; letter-spacing:.2px;
     }
     .btn:hover{transform:translateY(-1px);box-shadow:0 4px 0 #0003, inset 0 -2px 0 #0002}
-    .btn-outline{
-      background:transparent;color:var(--card);border-color:var(--card)
-    }
+    .btn-outline{background:transparent;color:var(--card);border-color:var(--card)}
     .pill{border-radius:999px;padding:.25rem .6rem;font-size:.75rem;font-weight:700;background:#00000012}
-
-    /* HERO */
     .hero{
       position:relative;isolation:isolate;color:#fff;
       background:
@@ -52,7 +38,6 @@
         linear-gradient(180deg, #223a62 0%, #1b2f50 55%, #162740 100%);
       overflow:hidden;
     }
-    /* subtle card-back pattern */
     .hero::before{
       content:"";position:absolute;inset:-10% -10% 0;z-index:0;opacity:.12;
       background:
@@ -61,7 +46,6 @@
         radial-gradient(circle at 40% 75%, #ffffff10 0 7%, #0000 8%);
       filter:blur(2px);
     }
-    /* skyline stripe */
     .skyline{
       position:absolute;left:0;right:0;bottom:0;height:120px;z-index:0;
       background:
@@ -76,14 +60,10 @@
     .hero-logo{
       width:min(900px,92%);margin-inline:auto;display:grid;place-items:center;text-align:center
     }
-    .crest{
-      width:280px;max-width:50vw;margin-inline:auto;margin-bottom:16px;
-    }
-    .crest svg{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 0 #0005)}
+    .crest{width:280px;max-width:50vw;margin-inline:auto;margin-bottom:16px;}
+    .crest img{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 0 #0005)} /* Use your PNG here! */
     .tag{font-size:1.2rem;opacity:.95;margin:.35rem 0 1.2rem}
     .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-
-    /* FEATURED CATEGORIES */
     .section{padding:56px 0}
     .section h2{font-size:1.8rem;text-align:center;margin-bottom:22px}
     .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -96,29 +76,25 @@
       aspect-ratio:1.2/1;border-radius:12px;background:linear-gradient(180deg,#274867,#1a3452);
       display:grid;place-items:center;margin:0 0 12px;border:1px solid #ffffff18
     }
+    .card img{width:64px;height:64px;object-fit:contain}
     .card figcaption{font-weight:700;text-align:center}
-
-    /* NEW ARRIVALS */
     .grid-2{display:grid;grid-template-columns:2fr 1fr;gap:22px;align-items:stretch}
     .products{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
     .product{
       background:#fff;border:2px solid #00000014;border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:10px
     }
     .product .thumb{aspect-ratio:3/4;border-radius:10px;background:#e8eef5;display:grid;place-items:center;border:1px solid #00000010}
+    .product .thumb img{width:100%;height:100%;object-fit:cover;border-radius:10px;}
     .product .meta{display:flex;justify-content:space-between;align-items:center}
     .product .title{font-weight:700}
     .product .price{font-weight:800}
     .product .badge{background:#041e36;color:#fff}
     .product .cta{justify-content:stretch}
     .product .btn{width:100%;justify-content:center}
-
-    /* Discord CTA */
     .panel{
       background:linear-gradient(180deg,#10243a,#0b1b2e);color:#fff;border-radius:16px;padding:22px;display:grid;gap:10px;
       border:2px solid #0003;box-shadow:0 8px 0 #0005
     }
-
-    /* Why shop & newsletter */
     .why{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
     .why .tile{
       background:#0d2740;color:#fff;border-radius:14px;padding:18px;text-align:center;border:2px solid #0003
@@ -129,10 +105,7 @@
     .newsletter input{
       flex:1;padding:.9rem 1rem;border-radius:12px;border:2px solid #00000022;background:#fff;font:inherit
     }
-
     footer{padding:40px 0;color:#cdd8e6;background:#0a1a2b;text-align:center;margin-top:40px}
-
-    /* Responsive */
     @media (max-width: 1024px){
       .cards{grid-template-columns:repeat(2,1fr)}
       .grid-2{grid-template-columns:1fr}
@@ -154,18 +127,9 @@
   <header class="hero">
     <div class="hero-inner container">
       <div class="hero-logo">
-        <!-- Brand Crest (generic, swap with your PNG/SVG) -->
+        <!-- Swap SVG crest for your PNG logo if desired -->
         <div class="crest" aria-hidden="true">
-          <svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg">
-            <!-- three cards -->
-            <g transform="translate(0,10)">
-              <rect x="20" y="20" rx="16" width="120" height="160" fill="#1e3a5f" stroke="#d2a44a" stroke-width="8"/>
-              <rect x="150" y="6" rx="16" width="120" height="180" fill="#264b74" stroke="#d2a44a" stroke-width="8"/>
-              <rect x="280" y="20" rx="16" width="120" height="160" fill="#233f66" stroke="#d2a44a" stroke-width="8"/>
-              <!-- Saltire on middle card -->
-              <path d="M150 6 L270 186 M270 6 L150 186" stroke="#f4e9d8" stroke-width="20" />
-            </g>
-          </svg>
+          <img src="logo.png" alt="The Clyde Cache Logo">
         </div>
         <h1>The Clyde Cache</h1>
         <p class="tag">Scotland’s Home for Trading Cards</p>
@@ -184,53 +148,30 @@
       <div class="container">
         <h2>Featured Categories</h2>
         <div class="cards">
-
           <a href="#" class="card">
             <figure>
-              <!-- generic Poké-like circle (non-IP) -->
-              <svg viewBox="0 0 100 100" width="64" height="64">
-                <circle cx="50" cy="50" r="44" fill="#0f2740" stroke="#d2a44a" stroke-width="6"/>
-                <path d="M6 50h88" stroke="#d2a44a" stroke-width="6"/>
-                <circle cx="50" cy="50" r="12" fill="#f4e9d8" stroke="#d2a44a" stroke-width="4"/>
-              </svg>
+              <img src="pokemon.png" alt="Pokémon">
             </figure>
             <figcaption>Pokémon</figcaption>
           </a>
-
           <a href="#" class="card">
             <figure>
-              <!-- planeswalker-like crest (generic) -->
-              <svg viewBox="0 0 120 120">
-                <path d="M60 6 L78 68 L60 58 L42 68 Z" fill="#d6512a"/>
-                <path d="M60 6 L76 58 L60 50 L44 58 Z" fill="#ff7a3c" opacity=".6"/>
-              </svg>
+              <img src="lorcana.png" alt="Lorcana">
+            </figure>
+            <figcaption>Lorcana</figcaption>
+          </a>
+          <a href="#" class="card">
+            <figure>
+              <img src="magic.png" alt="Magic">
             </figure>
             <figcaption>Magic</figcaption>
           </a>
-
           <a href="#" class="card">
             <figure>
-              <!-- card frame icon -->
-              <svg viewBox="0 0 100 100">
-                <rect x="18" y="18" width="64" height="64" rx="8" fill="none" stroke="#d2a44a" stroke-width="6"/>
-                <rect x="34" y="34" width="32" height="32" rx="6" fill="none" stroke="#f4e9d8" stroke-width="4"/>
-              </svg>
-            </figure>
-            <figcaption>Yu-Gi-Oh!</figcaption>
-          </a>
-
-          <a href="#" class="card">
-            <figure>
-              <!-- binder icon -->
-              <svg viewBox="0 0 120 120">
-                <rect x="26" y="20" width="68" height="80" rx="10" fill="none" stroke="#d2a44a" stroke-width="6"/>
-                <circle cx="44" cy="40" r="4" fill="#f4e9d8"/>
-                <rect x="46" y="50" width="40" height="36" rx="6" fill="none" stroke="#f4e9d8" stroke-width="4"/>
-              </svg>
+              <img src="accessories.png" alt="Accessories">
             </figure>
             <figcaption>Accessories</figcaption>
           </a>
-
         </div>
       </div>
     </section>
@@ -244,58 +185,47 @@
             <!-- Product 1 -->
             <article class="product">
               <div class="thumb">
-                <svg width="72" height="72" viewBox="0 0 72 72">
-                  <rect x="6" y="6" width="60" height="60" rx="8" fill="#c6d4e6"/>
-                </svg>
+                <img src="slab1.jpg" alt="Pikachu V">
               </div>
               <div class="meta">
-                <span class="title">Charmander (Holo)</span>
-                <span class="price">£2.99</span>
+                <span class="title">Pikachu V</span>
+                <span class="price">£12.09</span>
               </div>
               <span class="pill badge">New</span>
               <div class="cta"><a class="btn" href="#">Add to Cart</a></div>
             </article>
-
             <!-- Product 2 -->
             <article class="product">
               <div class="thumb">
-                <svg width="72" height="72" viewBox="0 0 72 72">
-                  <rect x="6" y="6" width="60" height="60" rx="8" fill="#c6d4e6"/>
-                </svg>
+                <img src="slab2.jpg" alt="NEO Mewtwo">
               </div>
               <div class="meta">
-                <span class="title">Mythic Planeswalker</span>
-                <span class="price">£7.49</span>
+                <span class="title">NEO Mewtwo</span>
+                <span class="price">£20.00</span>
               </div>
               <span class="pill badge">Limited Stock</span>
               <div class="cta"><a class="btn" href="#">Add to Cart</a></div>
             </article>
-
             <!-- Product 3 -->
             <article class="product">
               <div class="thumb">
-                <svg width="72" height="72" viewBox="0 0 72 72">
-                  <rect x="6" y="6" width="60" height="60" rx="8" fill="#c6d4e6"/>
-                </svg>
+                <img src="slab3.jpg" alt="ICUV">
               </div>
               <div class="meta">
-                <span class="title">Shining Sea-Dragon</span>
-                <span class="price">£34.99</span>
+                <span class="title">ICUV</span>
+                <span class="price">£14.00</span>
               </div>
               <span class="pill badge">Foil</span>
               <div class="cta"><a class="btn" href="#">Add to Cart</a></div>
             </article>
-
             <!-- Product 4 -->
             <article class="product">
               <div class="thumb">
-                <svg width="72" height="72" viewBox="0 0 72 72">
-                  <rect x="6" y="6" width="60" height="60" rx="8" fill="#c6d4e6"/>
-                </svg>
+                <img src="slab4.jpg" alt="Booster Box">
               </div>
               <div class="meta">
-                <span class="title">Mysterious Sorcerer</span>
-                <span class="price">£17.50</span>
+                <span class="title">Booster Box</span>
+                <span class="price">£90.00</span>
               </div>
               <div class="cta"><a class="btn" href="#">Add to Cart</a></div>
             </article>
