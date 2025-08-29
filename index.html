@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Clyde Cache</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700|Playfair+Display:700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700|Playfair+Display:700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -15,9 +15,10 @@
       </a>
       <ul class="nav-links">
         <li><a href="/" class="active">Home</a></li>
-        <li><a href="#about">About Us</a></li>
         <li><a href="#shop">Shop</a></li>
-        <li><a href="#events">Events</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#contact">Contact</a></li>
         <li>
           <a href="#cart" class="cart-icon" aria-label="Shopping Cart">
             <svg class="cart-svg" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
@@ -28,73 +29,132 @@
             <span id="basket-count">0</span>
           </a>
         </li>
-        <li><a href="#account">Account</a></li>
       </ul>
     </nav>
   </header>
-  
+
   <main>
+    <!-- Hero Section -->
     <section class="hero">
+      <div class="hero-logo">
+        <img src="logo.png" alt="The Clyde Cache Logo" />
+      </div>
       <h1>The Clyde Cache</h1>
-      <p>Your home for Pokémon cards, collectibles, and the latest Scottish releases.<br>
-      Discover rare boxes, packs, pins, plushes, and more!</p>
-    </section>
-
-    <section class="featured-section">
-      <h2>Featured Products</h2>
-      <div class="featured-products">
-        <div class="product-card">
-          <img src="slab1.jpg" alt="Featured Slab 1" />
-          <h3>Graded Slab 1</h3>
-          <p>£694.20</p>
-          <button class="btn">Add to Basket</button>
-        </div>
-        <div class="product-card">
-          <img src="slab2.jpg" alt="Featured Slab 2" />
-          <h3>Graded Slab 2</h3>
-          <p>£694.20</p>
-          <button class="btn">Add to Basket</button>
-        </div>
-        <div class="product-card">
-          <img src="slab3.jpg" alt="Featured Slab 3" />
-          <h3>Graded Slab 3</h3>
-          <p>£694.20</p>
-          <button class="btn">Add to Basket</button>
-        </div>
-        <div class="product-card">
-          <img src="slab4.jpg" alt="Featured Slab 4" />
-          <h3>Graded Slab 4</h3>
-          <p>£694.20</p>
-          <button class="btn">Add to Basket</button>
-        </div>
+      <p>Scotland’s Home for Trading Cards</p>
+      <div class="hero-btns">
+        <a href="#shop" class="btn hero-btn">Shop Now</a>
+        <a href="#join-cache" class="btn hero-btn secondary">Join the Cache</a>
       </div>
+      <div class="glasgow-skyline"></div>
     </section>
 
-    <section class="categories-section">
-      <h2>Shop by Category</h2>
+    <!-- Featured Categories -->
+    <section class="categories-section" id="collections">
+      <h2>Featured Collections</h2>
       <div class="categories-list">
-        <a href="#booster-boxes" class="category-card">
-          <img src="Booster-Box.jpg" alt="Booster Boxes" />
-          <span>Booster Boxes</span>
-        </a>
-        <a href="#booster-packs" class="category-card">
-          <img src="Booster-Packs.jpg" alt="Booster Packs" />
-          <span>Booster Packs</span>
-        </a>
-        <a href="#pins" class="category-card">
-          <img src="Pins.jpg" alt="Pins" />
-          <span>Pins</span>
-        </a>
-        <a href="#plushes" class="category-card">
-          <img src="Plush.jpg" alt="Plushes" />
-          <span>Plushes</span>
-        </a>
+        <div class="category-card">
+          <img src="pokemon.png" alt="Pokémon" width="112" height="112" />
+          <span>Pokémon</span>
+        </div>
+        <div class="category-card">
+          <img src="magic.png" alt="Magic: The Gathering" width="112" height="112" />
+          <span>Magic</span>
+        </div>
+        <div class="category-card">
+          <img src="lorcana.png" alt="Lorcana" width="112" height="112" />
+          <span>Lorcana</span>
+        </div>
+        <div class="category-card">
+          <img src="accessories.png" alt="Accessories" width="112" height="112" />
+          <span>Accessories</span>
+        </div>
       </div>
     </section>
+
+    <!-- New Arrivals Carousel -->
+    <section class="new-arrivals-section">
+      <h2>New Arrivals</h2>
+      <div class="arrivals-flex">
+        <div class="arrivals-carousel-wrapper">
+          <button class="carousel-arrow left" aria-label="Scroll left">&#8249;</button>
+          <div class="arrivals-carousel" id="arrivals-carousel">
+            <!-- Product Card Example, just update src and details as needed -->
+            <div class="product-card">
+              <img src="product1.png" alt="Product 1" width="144" height="144" />
+              <h3>Product Name 1</h3>
+              <p>£9.99</p>
+              <button class="btn">Add to Cart</button>
+            </div>
+            <div class="product-card">
+              <img src="product2.png" alt="Product 2" width="144" height="144" />
+              <h3>Product Name 2</h3>
+              <p>£14.99</p>
+              <button class="btn">Add to Cart</button>
+            </div>
+            <div class="product-card">
+              <img src="product3.png" alt="Product 3" width="144" height="144" />
+              <h3>Product Name 3</h3>
+              <p>£7.49</p>
+              <button class="btn">Add to Cart</button>
+            </div>
+            <!-- Add more product cards as needed -->
+          </div>
+          <button class="carousel-arrow right" aria-label="Scroll right">&#8250;</button>
+        </div>
+        <div class="discord-card">
+          <img src="logo.png" alt="Join our Discord" class="discord-card-logo" />
+          <p>Join our Discord for events, trading, and community fun!</p>
+          <a href="https://discord.gg/your-invite" class="btn discord-btn" target="_blank" rel="noopener">Join our Discord</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Shop With Us and Mailing List -->
+    <section class="bottom-section">
+      <div class="why-shop">
+        <h3>Why Shop With Us?</h3>
+        <div class="why-features">
+          <div class="why-feature">
+            <span class="why-icon">🚚</span>
+            <p>Fast UK Shipping</p>
+          </div>
+          <div class="why-feature">
+            <span class="why-icon">🛡️</span>
+            <p>Authenticity Guarantee</p>
+          </div>
+          <div class="why-feature">
+            <span class="why-icon">🤝</span>
+            <p>Local Community</p>
+          </div>
+        </div>
+      </div>
+      <div class="join-cache" id="join-cache">
+        <h3>Join the Cache</h3>
+        <p>Get news, deals & event invites.</p>
+        <form class="subscribe-form" autocomplete="off">
+          <input type="email" placeholder="Email address" required />
+          <button type="submit" class="btn">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
   </main>
 
   <footer>
     © 2025 The Clyde Cache
   </footer>
+
+  <script>
+    // Simple horizontal scrolling for arrivals carousel
+    const leftBtn = document.querySelector('.carousel-arrow.left');
+    const rightBtn = document.querySelector('.carousel-arrow.right');
+    const carousel = document.getElementById('arrivals-carousel');
+    leftBtn.addEventListener('click', () => {
+      carousel.scrollBy({left: -180, behavior: 'smooth'});
+    });
+    rightBtn.addEventListener('click', () => {
+      carousel.scrollBy({left: 180, behavior: 'smooth'});
+    });
+  </script>
 </body>
 </html>
