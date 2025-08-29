@@ -5,156 +5,149 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Clyde Cache</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700|Playfair+Display:700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <a href="/" class="logo-link" aria-label="Home">
-        <img src="logo.png" alt="The Clyde Cache Logo" class="logo-img" />
-      </a>
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="logo.png" alt="The Clyde Cache Logo" height="48">
+      </div>
       <ul class="nav-links">
-        <li><a href="/" class="active">Home</a></li>
-        <li><a href="#shop">Shop</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#collections">Collections</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Collections</a></li>
+        <li><a href="#">Contact</a></li>
         <li>
-          <a href="#cart" class="cart-icon" aria-label="Shopping Cart">
-            <svg class="cart-svg" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="9" cy="21" r="1"/>
-              <circle cx="20" cy="21" r="1"/>
-              <path d="M1 1h4l2.68 13.39A2 2 0 0 0 9.6 17h7.72a2 2 0 0 0 1.92-1.61l1.38-7.39H6"/>
-            </svg>
-            <span id="basket-count">0</span>
+          <a href="#" class="nav-cart">
+            <svg width="24" height="24" fill="none" stroke="#232b44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39A2 2 0 0 0 9.6 17h7.72a2 2 0 0 0 1.92-1.61l1.38-7.39H6"/></svg>
+            <span class="cart-badge">0</span>
           </a>
         </li>
       </ul>
-    </nav>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="hero-section">
+    <img src="logo.png" alt="The Clyde Cache Logo" class="hero-logo">
+    <h1 class="hero-title">The Clyde Cache</h1>
+    <p class="hero-tagline">Scotland’s Home for Trading Cards</p>
+    <div class="hero-buttons">
+      <a href="#" class="btn btn-gold">Shop Now</a>
+      <a href="#" class="btn btn-outline">Join the Cache</a>
+    </div>
   </header>
 
-  <main>
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-logo">
-        <img src="logo.png" alt="The Clyde Cache Logo" />
+  <!-- FEATURED COLLECTIONS -->
+  <section class="collections-section">
+    <h2 class="section-title">Featured Collections</h2>
+    <div class="collections-row">
+      <div class="collection-card">
+        <img src="pokemon.png" alt="Pokémon" width="112" height="112">
+        <span>Pokémon</span>
       </div>
-      <h1>The Clyde Cache</h1>
-      <p>Scotland’s Home for Trading Cards</p>
-      <div class="hero-btns">
-        <a href="#shop" class="btn hero-btn">Shop Now</a>
-        <a href="#join-cache" class="btn hero-btn secondary">Join the Cache</a>
+      <div class="collection-card">
+        <img src="magic.png" alt="Magic" width="112" height="112">
+        <span>Magic</span>
       </div>
-      <div class="glasgow-skyline"></div>
-    </section>
+      <div class="collection-card">
+        <img src="lorcana.png" alt="Lorcana" width="112" height="112">
+        <span>Lorcana</span>
+      </div>
+      <div class="collection-card">
+        <img src="accessories.png" alt="Accessories" width="112" height="112">
+        <span>Accessories</span>
+      </div>
+    </div>
+  </section>
 
-    <!-- Featured Categories -->
-    <section class="categories-section" id="collections">
-      <h2>Featured Collections</h2>
-      <div class="categories-list">
-        <div class="category-card">
-          <img src="pokemon.png" alt="Pokémon" width="112" height="112" />
-          <span>Pokémon</span>
-        </div>
-        <div class="category-card">
-          <img src="magic.png" alt="Magic: The Gathering" width="112" height="112" />
-          <span>Magic</span>
-        </div>
-        <div class="category-card">
-          <img src="lorcana.png" alt="Lorcana" width="112" height="112" />
-          <span>Lorcana</span>
-        </div>
-        <div class="category-card">
-          <img src="accessories.png" alt="Accessories" width="112" height="112" />
-          <span>Accessories</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- New Arrivals Carousel -->
-    <section class="new-arrivals-section">
-      <h2>New Arrivals</h2>
-      <div class="arrivals-flex">
-        <div class="arrivals-carousel-wrapper">
-          <button class="carousel-arrow left" aria-label="Scroll left">&#8249;</button>
-          <div class="arrivals-carousel" id="arrivals-carousel">
-            <!-- Product Card Example, just update src and details as needed -->
-            <div class="product-card">
-              <img src="product1.png" alt="Product 1" width="144" height="144" />
-              <h3>Product Name 1</h3>
-              <p>£9.99</p>
-              <button class="btn">Add to Cart</button>
+  <!-- NEW ARRIVALS -->
+  <section class="arrivals-section">
+    <h2 class="section-title">New Arrivals</h2>
+    <div class="arrivals-row">
+      <div class="arrivals-carousel-wrap">
+        <button class="carousel-arrow left" aria-label="Scroll left">&#8249;</button>
+        <div class="arrivals-carousel" id="carousel">
+          <!-- Product cards: fill in your images/names when ready -->
+          <div class="product-card">
+            <img src="product1.png" alt="Product 1" width="144" height="144">
+            <div class="product-info">
+              <strong>Product Name 1</strong>
+              <span class="product-price">£9.99</span>
+              <button class="btn btn-gold small">Add to Cart</button>
             </div>
-            <div class="product-card">
-              <img src="product2.png" alt="Product 2" width="144" height="144" />
-              <h3>Product Name 2</h3>
-              <p>£14.99</p>
-              <button class="btn">Add to Cart</button>
+          </div>
+          <div class="product-card">
+            <img src="product2.png" alt="Product 2" width="144" height="144">
+            <div class="product-info">
+              <strong>Product Name 2</strong>
+              <span class="product-price">£14.99</span>
+              <button class="btn btn-gold small">Add to Cart</button>
             </div>
-            <div class="product-card">
-              <img src="product3.png" alt="Product 3" width="144" height="144" />
-              <h3>Product Name 3</h3>
-              <p>£7.49</p>
-              <button class="btn">Add to Cart</button>
+          </div>
+          <div class="product-card">
+            <img src="product3.png" alt="Product 3" width="144" height="144">
+            <div class="product-info">
+              <strong>Product Name 3</strong>
+              <span class="product-price">£7.49</span>
+              <button class="btn btn-gold small">Add to Cart</button>
             </div>
-            <!-- Add more product cards as needed -->
           </div>
-          <button class="carousel-arrow right" aria-label="Scroll right">&#8250;</button>
         </div>
-        <div class="discord-card">
-          <img src="logo.png" alt="Join our Discord" class="discord-card-logo" />
-          <p>Join our Discord for events, trading, and community fun!</p>
-          <a href="https://discord.gg/your-invite" class="btn discord-btn" target="_blank" rel="noopener">Join our Discord</a>
-        </div>
+        <button class="carousel-arrow right" aria-label="Scroll right">&#8250;</button>
       </div>
-    </section>
+      <div class="discord-card">
+        <img src="logo.png" alt="Join our Discord" class="discord-logo">
+        <p>Join our Discord for events, trading, and community fun!</p>
+        <a href="https://discord.gg/your-invite" target="_blank" rel="noopener" class="btn btn-gold">Join our Discord</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- Why Shop With Us and Mailing List -->
-    <section class="bottom-section">
-      <div class="why-shop">
-        <h3>Why Shop With Us?</h3>
-        <div class="why-features">
-          <div class="why-feature">
-            <span class="why-icon">🚚</span>
-            <p>Fast UK Shipping</p>
-          </div>
-          <div class="why-feature">
-            <span class="why-icon">🛡️</span>
-            <p>Authenticity Guarantee</p>
-          </div>
-          <div class="why-feature">
-            <span class="why-icon">🤝</span>
-            <p>Local Community</p>
-          </div>
+  <!-- WHY SHOP & JOIN THE CACHE -->
+  <section class="bottom-section">
+    <div class="why-shop-card">
+      <h3>Why Shop With Us?</h3>
+      <div class="why-icons-row">
+        <div class="why-icon">
+          <span class="emoji">🚚</span>
+          <span>Fast UK Shipping</span>
+        </div>
+        <div class="why-icon">
+          <span class="emoji">🛡️</span>
+          <span>Authenticity</span>
+        </div>
+        <div class="why-icon">
+          <span class="emoji">🤝</span>
+          <span>Local Community</span>
         </div>
       </div>
-      <div class="join-cache" id="join-cache">
-        <h3>Join the Cache</h3>
-        <p>Get news, deals & event invites.</p>
-        <form class="subscribe-form" autocomplete="off">
-          <input type="email" placeholder="Email address" required />
-          <button type="submit" class="btn">Subscribe</button>
-        </form>
-      </div>
-    </section>
-
-  </main>
+    </div>
+    <div class="join-cache-card">
+      <h3>Join the Cache</h3>
+      <p>Get news, deals & event invites.</p>
+      <form class="subscribe-form" autocomplete="off">
+        <input type="email" placeholder="Email address" required>
+        <button type="submit" class="btn btn-gold">Subscribe</button>
+      </form>
+    </div>
+  </section>
 
   <footer>
     © 2025 The Clyde Cache
   </footer>
 
   <script>
-    // Simple horizontal scrolling for arrivals carousel
-    const leftBtn = document.querySelector('.carousel-arrow.left');
-    const rightBtn = document.querySelector('.carousel-arrow.right');
-    const carousel = document.getElementById('arrivals-carousel');
-    leftBtn.addEventListener('click', () => {
-      carousel.scrollBy({left: -180, behavior: 'smooth'});
-    });
-    rightBtn.addEventListener('click', () => {
-      carousel.scrollBy({left: 180, behavior: 'smooth'});
-    });
+    // Carousel logic
+    const carousel = document.getElementById('carousel');
+    document.querySelector('.carousel-arrow.left').onclick = () =>
+      carousel.scrollBy({left: -200, behavior: 'smooth'});
+    document.querySelector('.carousel-arrow.right').onclick = () =>
+      carousel.scrollBy({left: 200, behavior: 'smooth'});
   </script>
 </body>
 </html>
