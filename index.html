@@ -2,385 +2,352 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>The Clyde Cache — Scotland’s Home for Trading Cards</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --ink:#132536; --ink-2:#0e1b28; --cream:#f4e9d8; --paper:#f7efe3;
-      --gold:#d2a44a; --gold-2:#b9882e; --blue:#1e3a5f; --card:#0f2740;
-      --muted:#8fa3b8; --success:#2ea44f;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.35}
-    h1,h2,h3{font-family:Cinzel,Georgia,serif;margin:0 0 .6rem}
-    img{max-width:100%;display:block}
-    a{color:inherit;text-decoration:none}
-    .container{width:min(1200px,92%);margin-inline:auto}
-    .btn{
-      display:inline-flex;align-items:center;gap:.5rem;
-      background:var(--card);color:#fff;border-radius:999px;
-      padding:.8rem 1.2rem;border:2px solid #0002;
-      box-shadow:0 2px 0 #0003, inset 0 -2px 0 #0002;
-      transition:transform .08s ease, box-shadow .12s ease, background .12s ease;
-      font-weight:600; letter-spacing:.2px;
-    }
-    .btn:hover{transform:translateY(-1px);box-shadow:0 4px 0 #0003, inset 0 -2px 0 #0002}
-    .btn-outline{background:transparent;color:var(--card);border-color:var(--card)}
-    .pill{border-radius:999px;padding:.25rem .6rem;font-size:.75rem;font-weight:700;background:#00000012}
-    .hero{
-      position:relative;isolation:isolate;color:#fff;
-      background:
-        radial-gradient(1200px 60% at 50% 100%, #0000 40%, #0005 75%, #0008 100%),
-        linear-gradient(180deg, #223a62 0%, #1b2f50 55%, #162740 100%);
-      overflow:hidden;
-    }
-    .hero::before{
-      content:"";position:absolute;inset:-10% -10% 0;z-index:0;opacity:.12;
-      background:
-        radial-gradient(circle at 20% 30%, #ffffff10 0 8%, #0000 9%),
-        radial-gradient(circle at 70% 20%, #ffffff10 0 7%, #0000 8%),
-        radial-gradient(circle at 40% 75%, #ffffff10 0 7%, #0000 8%);
-      filter:blur(2px);
-    }
-    .skyline{
-      position:absolute;left:0;right:0;bottom:0;height:120px;z-index:0;
-      background:
-        linear-gradient(#0000, #0003 40%, #0008),
-        url('data:image/svg+xml;utf8,\
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120">\
-          <path fill="%230d1f33" d="M0 100h60l20-20h40l12-22h30l10 18h50l14-30h60l20 16h50l25-18h40l12 12h70l12-12h40l15 28h35l18-10h30l35 10h40l40-14 10 10h55v40H0z"/>\
-          <path fill="%23132a44" d="M0 120h1200v0H0z"/>\
-        </svg>') center/cover no-repeat;
-    }
-    .hero-inner{position:relative;z-index:1;padding:56px 0 140px}
-    .hero-logo{
-      width:min(900px,92%);margin-inline:auto;display:grid;place-items:center;text-align:center
-    }
-    .crest{width:280px;max-width:50vw;margin-inline:auto;margin-bottom:16px;}
-    .crest img{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 0 #0005)}
-    .tag{font-size:1.2rem;opacity:.95;margin:.35rem 0 1.2rem}
-    .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-    .section{padding:56px 0}
-    .section h2{font-size:1.8rem;text-align:center;margin-bottom:22px}
-
-    /* --- CATEGORY BUTTONS/BOXES --- */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 18px;
-      margin-bottom: 0;
-    }
-    .card {
-      background: var(--card);
-      color: #fff;
-      border-radius: 14px;
-      padding: 10px;
-      box-shadow: 0 3px 0 #0004;
-      border: 2px solid #0003;
-      transition: transform .1s ease;
-      max-width: 135px;
-      min-width: 0;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .card:hover { transform: translateY(-2px); }
-    .card figure {
-      aspect-ratio: 1.2/1;
-      border-radius: 10px;
-      background: linear-gradient(180deg,#274867,#1a3452);
-      display: grid;
-      place-items: center;
-      margin: 0 0 7px;
-      border: 1px solid #ffffff18;
-      height: 56px;
-      width: 90%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .card img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-    }
-    .card figcaption {
-      font-weight: 700;
-      text-align: center;
-      font-size: .95rem;
-      margin-top: 2px;
-      letter-spacing: 0.2px;
-      padding-bottom: 2px;
-    }
-
-    .grid-2{display:grid;grid-template-columns:2fr 1fr;gap:22px;align-items:stretch}
-    .products{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .product{
-      background:#fff;border:2px solid #00000014;border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:10px
-    }
-    .product .thumb{aspect-ratio:3/4;border-radius:10px;background:#e8eef5;display:grid;place-items:center;border:1px solid #00000010}
-    .product .thumb img{width:100%;height:100%;object-fit:cover;border-radius:10px;}
-    .product .meta{display:flex;justify-content:space-between;align-items:center}
-    .product .title{font-weight:700}
-    .product .price{font-weight:800}
-    .product .badge{background:#041e36;color:#fff}
-    .product .cta{justify-content:stretch}
-    .product .btn{width:100%;justify-content:center}
-    .panel{
-      background:linear-gradient(180deg,#10243a,#0b1b2e);color:#fff;border-radius:16px;padding:22px;display:grid;gap:10px;
-      border:2px solid #0003;box-shadow:0 8px 0 #0005
-    }
-    /* Discord Panel Customization */
-    .discord-panel {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 44px 18px 44px 18px;
-      background: linear-gradient(180deg, #142741 70%, #0d1f33 100%);
-      border-radius: 22px;
-      box-shadow: 0 8px 0 #0005;
-      border: 2px solid #0003;
-      min-height: 350px;
-      text-align: center;
-      justify-content: center;
-    }
-    .discord-header {
-      font-family: Cinzel, Georgia, serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 18px;
-      letter-spacing: 0.5px;
-    }
-    .discord-logo-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 80px;
-      height: 80px;
-      margin-bottom: 20px;
-      border-radius: 50%;
-      background: #232b44;
-      box-shadow: 0 4px 24px #0002;
-      transition: box-shadow 0.15s, transform 0.12s;
-      outline: none;
-    }
-    .discord-logo-link:hover, .discord-logo-link:focus {
-      box-shadow: 0 6px 28px #7289daaa;
-      transform: scale(1.09);
-    }
-    .discord-logo {
-      width: 64px;
-      height: 64px;
-      object-fit: contain;
-      display: block;
-    }
-    .discord-caption {
-      color: #e7eaf1;
-      font-size: 1.07rem;
-      margin-top: 8px;
-      max-width: 240px;
-      opacity: 0.97;
-    }
-    .why{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .why .tile{
-      background:#0d2740;color:#fff;border-radius:14px;padding:18px;text-align:center;border:2px solid #0003
-    }
-    .why svg{width:34px;margin-inline:auto 8px;display:block}
-    .newsletter{display:grid;grid-template-columns:1.6fr 1fr;gap:18px}
-    .newsletter .panel form{display:flex;gap:10px}
-    .newsletter input{
-      flex:1;padding:.9rem 1rem;border-radius:12px;border:2px solid #00000022;background:#fff;font:inherit
-    }
-    footer{padding:40px 0;color:#cdd8e6;background:#0a1a2b;text-align:center;margin-top:40px}
-    @media (max-width: 1024px){
-      .cards{grid-template-columns:repeat(2,1fr)}
-      .grid-2{grid-template-columns:1fr}
-      .products{grid-template-columns:repeat(2,1fr)}
-      .why{grid-template-columns:repeat(2,1fr)}
-      .newsletter{grid-template-columns:1fr}
-      .crest{width:240px}
-    }
-    @media (max-width: 560px){
-      .cards{grid-template-columns:1fr}
-      .products{grid-template-columns:1fr}
-      .hero-inner{padding:44px 0 120px}
-      .card { max-width: 94vw; }
-      .card figure { height: 48vw; }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arcana Depot — TCG & Games</title>
+  <meta name="description" content="A clean, responsive storefront template for trading cards, board games, and accessories." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,\
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='%23ff3d57'/><stop offset='1' stop-color='%234dd1ff'/></linearGradient></defs><rect rx='12' ry='12' width='64' height='64' fill='url(%23g)'/></svg>">
 </head>
 <body>
+  <!-- ===== Top promo ===== -->
+  <div class="topbar">
+    <div class="container">
+      <div class="promo">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.1L18.9 21 12 16.9 5.1 21l1.4-7.9L1 9h7z"/></svg>
+        Free UK shipping over £30 — same-day dispatch by 4pm.
+      </div>
+      <div class="promo">Need help? <strong>support@arcanadepot.example</strong></div>
+    </div>
+  </div>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-inner container">
-      <div class="hero-logo">
-        <div class="crest" aria-hidden="true">
-          <img src="logo.png" alt="The Clyde Cache Logo">
-        </div>
-        <h1>The Clyde Cache</h1>
-        <p class="tag">Scotland’s Home for Trading Cards</p>
-        <div class="cta">
-          <a class="btn" href="#">Shop Now</a>
-          <a class="btn btn-outline" href="#">Join the Cache</a>
-        </div>
+  <!-- ===== Header ===== -->
+  <header class="header">
+    <div class="container row">
+      <a href="#" class="logo" aria-label="Arcana Depot home">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span>Arcana Depot</span>
+      </a>
+
+      <form class="search" role="search" aria-label="Sitewide">
+        <input type="search" name="q" placeholder="Search products, sets, brands…" aria-label="Search" />
+        <button type="submit" aria-label="Search">Search</button>
+      </form>
+
+      <div class="actions">
+        <a href="#" class="icon-btn" aria-label="Account">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-5 0-9 2.5-9 5v1h18v-1c0-2.5-4-5-9-5Z"/></svg>
+        </a>
+        <a href="#" class="icon-btn" aria-label="Wishlist">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.5-8.7a5.6 5.6 0 0 1 9-6.4l.5.6.5-.6a5.6 5.6 0 0 1 9 6.4C19.5 16.3 12 21 12 21Z"/></svg>
+        </a>
+        <a href="#" class="icon-btn" aria-label="Cart">
+          <span class="count" aria-hidden="true">3</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4h-2l-1 2v2h2l3.6 7.6L8 18a2 2 0 1 0 2 2h6a2 2 0 1 0 2-2H9.4l.9-1.5h7.4l3.3-6.5H7.4Z"/></svg>
+        </a>
       </div>
     </div>
-    <div class="skyline" aria-hidden="true"></div>
-  </header>
 
-  <main>
-    <!-- FEATURED CATEGORIES -->
-    <section class="section">
+    <!-- Desktop nav -->
+    <nav>
       <div class="container">
-        <h2>Featured Categories</h2>
-        <div class="cards">
-          <a href="#" class="card">
-            <figure>
-              <img src="pokemon.png" alt="Pokémon">
-            </figure>
-            <figcaption>Pokémon</figcaption>
-          </a>
-          <a href="#" class="card">
-            <figure>
-              <img src="lorcana.png" alt="Lorcana">
-            </figure>
-            <figcaption>Lorcana</figcaption>
-          </a>
-          <a href="#" class="card">
-            <figure>
-              <img src="magic.png" alt="Magic">
-            </figure>
-            <figcaption>Magic</figcaption>
-          </a>
-          <a href="#" class="card">
-            <figure>
-              <img src="accessories.png" alt="Accessories">
-            </figure>
-            <figcaption>Accessories</figcaption>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- NEW ARRIVALS + DISCORD CTA -->
-    <section class="section" style="background:#0d2740; color:#fff;">
-      <div class="container grid-2">
-        <div>
-          <h2>New Arrivals</h2>
-          <div class="products">
-            <article class="product">
-              <div class="thumb">
-                <img src="slab1.jpg" alt="Pikachu V">
+        <div class="nav-inner" role="menubar" aria-label="Primary">
+          <div class="nav-item">
+            <a class="nav-link" href="#" role="menuitem" aria-haspopup="true">Trading Cards</a>
+            <div class="mega" role="menu">
+              <div class="mega-cols">
+                <div>
+                  <h4>Popular TCGs</h4>
+                  <a href="#">Arcane Masters</a>
+                  <a href="#">Luminous Realms</a>
+                  <a href="#">Galaxy Force</a>
+                  <a href="#">Poke-Monarch*</a>
+                </div>
+                <div>
+                  <h4>Shop By</h4>
+                  <a href="#">Booster Boxes</a>
+                  <a href="#">Bundles & Kits</a>
+                  <a href="#">Singles</a>
+                  <a href="#">Preorders</a>
+                </div>
+                <div>
+                  <h4>Brands</h4>
+                  <a href="#">WizForge</a>
+                  <a href="#">Starlit Games</a>
+                  <a href="#">Elder Oak</a>
+                  <a href="#">Nebula Press</a>
+                </div>
               </div>
-              <div class="meta">
-                <span class="title">Pikachu V</span>
-                <span class="price">£12.09</span>
-              </div>
-              <span class="pill badge">New</span>
-              <div class="cta"><a class="btn" href="#">Add to Cart</a></div>
-            </article>
-            <article class="product">
-              <div class="thumb">
-                <img src="slab2.jpg" alt="NEO Mewtwo">
-              </div>
-              <div class="meta">
-                <span class="title">NEO Mewtwo</span>
-                <span class="price">£20.00</span>
-              </div>
-              <span class="pill badge">Limited Stock</span>
-              <div class="cta"><a class="btn" href="#">Add to Cart</a></div>
-            </article>
-            <article class="product">
-              <div class="thumb">
-                <img src="slab3.jpg" alt="ICUV">
-              </div>
-              <div class="meta">
-                <span class="title">ICUV</span>
-                <span class="price">£14.00</span>
-              </div>
-              <span class="pill badge">Foil</span>
-              <div class="cta"><a class="btn" href="#">Add to Cart</a></div>
-            </article>
-            <article class="product">
-              <div class="thumb">
-                <img src="slab4.jpg" alt="Booster Box">
-              </div>
-              <div class="meta">
-                <span class="title">Booster Box</span>
-                <span class="price">£90.00</span>
-              </div>
-              <div class="cta"><a class="btn" href="#">Add to Cart</a></div>
-            </article>
-          </div>
-        </div>
-        <!-- Discord Section: NEW -->
-        <aside class="panel discord-panel">
-          <div class="discord-header">Join the discord!</div>
-          <a href="https://discord.gg/28PnXR3Nrp" target="_blank" rel="noopener" class="discord-logo-link">
-            <img src="discord.png" alt="Discord Logo" class="discord-logo" width="64" height="64">
-          </a>
-          <div class="discord-caption">
-            Trade, chat, and get first dibs on drops &amp; events.
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- WHY SHOP + NEWSLETTER -->
-    <section class="section">
-      <div class="container">
-        <div class="why">
-          <div class="tile">
-            <svg viewBox="0 0 24 24"><path fill="#f4e9d8" d="M3 6h18l-2 10H5L3 6zm5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
-            <strong>Fast UK Shipping</strong>
-          </div>
-          <div class="tile">
-            <svg viewBox="0 0 24 24"><path fill="#f4e9d8" d="M12 2l9 4-9 4-9-4 9-4zm0 7l9 4-9 4-9-4 9-4zm0 7l9 4-9 4-9-4 9-4z"/></svg>
-            <strong>Authenticity Guaranteed</strong>
-          </div>
-          <div class="tile">
-            <svg viewBox="0 0 24 24"><path fill="#f4e9d8" d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm-7 9c0-3.9 3.1-7 7-7s7 3.1 7 7H5z"/></svg>
-            <strong>Local Community Focus</strong>
-          </div>
-          <div class="tile">
-            <svg viewBox="0 0 24 24"><path fill="#f4e9d8" d="M4 6h16v12H4zM7 9h10v2H7z"/></svg>
-            <strong>Huge Card Selection</strong>
-          </div>
-        </div>
-
-        <div class="newsletter section" style="padding-top:30px">
-          <div class="panel" style="background:linear-gradient(180deg,#132a44,#0f2137)">
-            <h3 style="font-family:Cinzel,Georgia,serif;margin:0 0 .5rem">Join the Cache</h3>
-            <p style="opacity:.9;margin:.2rem 0 1rem">Get news, deals & event invites.</p>
-            <form action="#" onsubmit="event.preventDefault(); alert('Subscribed!');">
-              <input type="email" placeholder="Email address" required />
-              <button class="btn" type="submit">Subscribe</button>
-            </form>
-          </div>
-          <div class="panel" style="display:grid;place-items:center">
-            <div style="text-align:center">
-              <div class="pill" style="display:inline-block;background:#ffffff14;color:#fff">© The Clyde Cache</div>
-              <p style="opacity:.8;margin:.6rem 0 0">Scotland’s home for trading cards.</p>
             </div>
           </div>
+
+          <div class="nav-item">
+            <a class="nav-link" href="#" role="menuitem" aria-haspopup="true">Board Games</a>
+            <div class="mega" role="menu">
+              <div class="mega-cols">
+                <div>
+                  <h4>Categories</h4>
+                  <a href="#">Strategy</a>
+                  <a href="#">Co-op</a>
+                  <a href="#">Family</a>
+                  <a href="#">Party</a>
+                </div>
+                <div>
+                  <h4>Top Picks</h4>
+                  <a href="#">Siege of Eldrun</a>
+                  <a href="#">Voyage & Valor</a>
+                  <a href="#">Mystic Market</a>
+                </div>
+                <div>
+                  <h4>Accessories</h4>
+                  <a href="#">Playmats</a>
+                  <a href="#">Sleeves</a>
+                  <a href="#">Binders</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a class="nav-link" href="#">Accessories</a>
+          <a class="nav-link" href="#">Preorders</a>
+          <a class="nav-link" href="#">Deals</a>
+          <a class="nav-link" href="#">New In</a>
+        </div>
+
+        <!-- Mobile nav toggle -->
+        <div class="mobile-bar">
+          <label for="nav-toggle">☰ Menu</label>
+          <input type="checkbox" id="nav-toggle" />
+        </div>
+        <div class="mobile-panel">
+          <a href="#">Trading Cards</a>
+          <a href="#">Board Games</a>
+          <a href="#">Accessories</a>
+          <a href="#">Preorders</a>
+          <a href="#">Deals</a>
+          <a href="#">New In</a>
         </div>
       </div>
-    </section>
-  </main>
+    </nav>
+  </header>
 
-  <footer>
+  <!-- ===== Hero ===== -->
+  <section class="hero">
     <div class="container">
-      <small>© <span id="y"></span> The Clyde Cache — All rights reserved.</small>
+      <div class="hero-card">
+        <div class="eyebrow"><span class="dot"></span><span>Autumn Launch · Limited Stock</span></div>
+        <h1>Build your deck. Rule the table.</h1>
+        <p>From fresh releases to classic reprints — boosters, boxes, singles, sleeves and more. Hand-picked, well-priced, dispatched fast.</p>
+        <div style="display:flex; gap:.6rem; margin-top:1rem;">
+          <a href="#" class="btn">Shop New Arrivals</a>
+          <a href="#" class="btn btn-outline">Browse Preorders</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <!-- Decorative placeholder visual -->
+        <svg viewBox="0 0 300 220" width="90%" style="opacity:.95">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#4dd1ff"/>
+              <stop offset="1" stop-color="#ff3d57"/>
+            </linearGradient>
+          </defs>
+          <rect x="20" y="20" width="90" height="130" rx="10" fill="#0b0f18" stroke="url(#g)" stroke-width="3"/>
+          <rect x="110" y="30" width="90" height="130" rx="10" fill="#0b0f18" stroke="#4dd1ff" stroke-width="3"/>
+          <rect x="200" y="40" width="90" height="130" rx="10" fill="#0b0f18" stroke="#ff3d57" stroke-width="3"/>
+        </svg>
+      </div>
     </div>
+  </section>
+
+  <!-- ===== Category chips ===== -->
+  <div class="stripe">
+    <div class="container">
+      <div class="chip">🔥 Best Sellers</div>
+      <div class="chip">🧙‍♂️ Fantasy</div>
+      <div class="chip">🚀 Sci-Fi</div>
+      <div class="chip">🟣 Sleeves</div>
+      <div class="chip">📚 Binders</div>
+      <div class="chip">🎲 Dice</div>
+    </div>
+  </div>
+
+  <!-- ===== New Arrivals ===== -->
+  <section class="section container">
+    <h2>New Arrivals</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="card-media">
+          <span class="badge flag">NEW</span>
+          <img src="https://picsum.photos/seed/box1/600/450" alt="Arcane Masters: Emberfall Booster Box" />
+        </div>
+        <div class="card-body">
+          <div class="title">Arcane Masters: Emberfall Booster Box</div>
+          <div class="sub">36 boosters · 15 cards each</div>
+          <div class="price">£109.95</div>
+        </div>
+        <div class="card-actions">
+          <a href="#" class="btn btn-sm">Add to basket</a>
+          <a href="#" class="btn btn-sm btn-outline">View</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media">
+          <span class="badge flag">NEW</span>
+          <img src="https://picsum.photos/seed/box2/600/450" alt="Luminous Realms Starter Kit (2 decks)" />
+        </div>
+        <div class="card-body">
+          <div class="title">Luminous Realms — Starter Kit (2 decks)</div>
+          <div class="sub">Ready to play · Learn & battle</div>
+          <div class="price">£24.99</div>
+        </div>
+        <div class="card-actions">
+          <a href="#" class="btn btn-sm">Add to basket</a>
+          <a href="#" class="btn btn-sm btn-outline">View</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media">
+          <span class="badge flag">HOT</span>
+          <img src="https://picsum.photos/seed/box3/600/450" alt="Galaxy Force — Nebula Siege Collector Bundle" />
+        </div>
+        <div class="card-body">
+          <div class="title">Galaxy Force — Nebula Siege Collector Bundle</div>
+          <div class="sub">Bundle · Exclusive art sleeves</div>
+          <div class="price"><s>£79.99</s> £69.99</div>
+        </div>
+        <div class="card-actions">
+          <a href="#" class="btn btn-sm">Add to basket</a>
+          <a href="#" class="btn btn-sm btn-outline">View</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media">
+          <span class="badge flag">LIMITED</span>
+          <img src="https://picsum.photos/seed/box4/600/450" alt="Sleeves — Holographic Shield (100)" />
+        </div>
+        <div class="card-body">
+          <div class="title">Sleeves — Holographic Shield (100)</div>
+          <div class="sub">Standard size · Acid-free</div>
+          <div class="price">£8.49</div>
+        </div>
+        <div class="card-actions">
+          <a href="#" class="btn btn-sm">Add to basket</a>
+          <a href="#" class="btn btn-sm btn-outline">View</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== Banner ===== -->
+  <section class="container section">
+    <div class="banner">
+      <div>
+        <div class="eyebrow" style="justify-content:center; margin-bottom:.4rem"><span class="dot"></span> <span>Weekend Deal</span></div>
+        <h2 style="margin:.2rem 0 0">Save <strong>10%</strong> on orders over <strong>£100</strong> · Code: <strong>ARCANA10</strong></h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Best Sellers ===== -->
+  <section class="section container">
+    <h2>Best Sellers</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="card-media"><img src="https://picsum.photos/seed/bs1/600/450" alt="Mystic Market Board Game" /></div>
+        <div class="card-body">
+          <div class="title">Mystic Market — Board Game</div>
+          <div class="sub">2–5 players · 45–60 mins</div>
+          <div class="price">£31.95</div>
+        </div>
+        <div class="card-actions"><a class="btn btn-sm" href="#">Add to basket</a><a class="btn btn-sm btn-outline" href="#">View</a></div>
+      </article>
+      <article class="card">
+        <div class="card-media"><img src="https://picsum.photos/seed/bs2/600/450" alt="Premium Binders — 9-Pocket Zip" /></div>
+        <div class="card-body">
+          <div class="title">Premium Binders — 9-Pocket Zip</div>
+          <div class="sub">PVC-free · 20 pages</div>
+          <div class="price">£18.99</div>
+        </div>
+        <div class="card-actions"><a class="btn btn-sm" href="#">Add to basket</a><a class="btn btn-sm btn-outline" href="#">View</a></div>
+      </article>
+      <article class="card">
+        <div class="card-media"><img src="https://picsum.photos/seed/bs3/600/450" alt="Dice Vault — Obsidian Set (7)" /></div>
+        <div class="card-body">
+          <div class="title">Dice Vault — Obsidian Set (7)</div>
+          <div class="sub">Sharp-edge resin</div>
+          <div class="price">£12.49</div>
+        </div>
+        <div class="card-actions"><a class="btn btn-sm" href="#">Add to basket</a><a class="btn btn-sm btn-outline" href="#">View</a></div>
+      </article>
+      <article class="card">
+        <div class="card-media"><img src="https://picsum.photos/seed/bs4/600/450" alt="Playmat — Nebula Drift XL" /></div>
+        <div class="card-body">
+          <div class="title">Playmat — Nebula Drift XL</div>
+          <div class="sub">Stitched edge · Anti-slip</div>
+          <div class="price">£14.95</div>
+        </div>
+        <div class="card-actions"><a class="btn btn-sm" href="#">Add to basket</a><a class="btn btn-sm btn-outline" href="#">View</a></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== Newsletter ===== -->
+  <section class="container section">
+    <div class="newsletter">
+      <div>
+        <h3 style="margin:0 0 .4rem">Join 50,000+ players on our list</h3>
+        <p class="disclaimer">Get early access to preorders, restocks, and exclusive codes. No spam. Unsubscribe any time.</p>
+      </div>
+      <form>
+        <label class="sr-only" for="email">Email</label>
+        <input id="email" type="email" placeholder="you@example.com" required />
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <a href="#" class="logo" aria-label="Arcana Depot home">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span>Arcana Depot</span>
+        </a>
+        <p style="color:var(--text-dim); max-width:45ch; margin:.6rem 0 0">Independent UK retailer of trading card games, board games, and gaming accessories. Fast dispatch, careful packing, and friendly support.</p>
+      </div>
+      <div>
+        <h5>Shop</h5>
+        <a href="#">Trading Cards</a>
+        <a href="#">Board Games</a>
+        <a href="#">Accessories</a>
+        <a href="#">Deals</a>
+        <a href="#">Preorders</a>
+      </div>
+      <div>
+        <h5>Help</h5>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">FAQs</a>
+        <a href="#">Contact</a>
+      </div>
+      <div>
+        <h5>Info</h5>
+        <a href="#">About</a>
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="#">Cookie Settings</a>
+      </div>
+    </div>
+    <div class="container copyright">© <span id="y">2025</span> Arcana Depot — Built with pure HTML & CSS</div>
   </footer>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    (function(){ try { document.getElementById('y').textContent = new Date().getFullYear(); } catch(_){} })();
   </script>
 </body>
 </html>
